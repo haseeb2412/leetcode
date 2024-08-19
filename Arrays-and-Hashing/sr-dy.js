@@ -27,7 +27,7 @@
 // }
 
 
-// problem 02 ( valid anagaram )-----------------------------------------------
+// problem 02 ( valid anagaram )----------------------------------------------------------------------
 
 
 // Example 1:
@@ -53,7 +53,7 @@
 // console.log("ss",ss);
 // console.log("tt",tt);
 
-// problem 03 ( valid anagaram )-----------------------------------------------
+// problem 03 ( valid anagaram )----------------------------------------------------------------------
 
 
 
@@ -90,7 +90,7 @@
 // console.log("answer",answer);
 
 
-// problem 04 ( Group Anagram )----------------------------
+// problem 04 ( Group Anagram )-------------------------------------------------------------------------------
 
 
 // Example 1:
@@ -106,26 +106,120 @@
 // Input: strs = ["a"]
 // Output: [["a"]]
 
-let strs = ["eat","tea","tan","ate","nat","bat"];
-let sorted = strs.map((str)=>str.split("").sort().join(""));
-console.log(sorted);
-let map={};
+// let strs = ["eat","tea","tan","ate","nat","bat"];
+// let sorted = strs.map((str)=>str.split("").sort().join(""));
+// console.log(sorted);
+// let map={};
 
-for (let i = 0; i < sorted.length; i++) {
-    if(!map[sorted[i]]){
-        map[sorted[i]] = [strs[i]];
-    }
-    else{
-        map[sorted[i]].push(strs[i])
+// for (let i = 0; i < sorted.length; i++) {
+//     if(!map[sorted[i]]){
+//         map[sorted[i]] = [strs[i]];
+//     }
+//     else{
+//         map[sorted[i]].push(strs[i])
 
-    }
+//     }
 
     
-}
-return Object.values(map);
-// for (let i = 0; i < strs.length; i++) {
-//     for (let j = 0; j < array.length; j++) {
-        
-        
+// }
+// return Object.values(map);
+
+
+// problem 05 ( top k frequent element ) --------------------------------------------------------------
+// Example 1:
+
+// Input: nums = [1,1,1,2,2,3], k = 2
+// Output: [1,2]
+// Example 2:
+
+// Input: nums = [1], k = 1
+// Output: [1]
+ 
+// let  nums = [1,1,1,2,2,3], k = 2;
+
+// let freqs = {};
+// for (num of nums) {
+//     if (freqs[num] === undefined) { 
+//         freqs[num] = 1; 
+//     } else {
+//         freqs[num] = freqs[num] + 1;
 //     }
 // }
+    
+//     // Convert to array with [frequency, number] elements
+// let frequencyArray = [];
+// for (key in freqs) {
+//     frequencyArray.push([freqs[key], key]);
+// }
+    
+//     // Sort in descending order with frequency as key
+// frequencyArray.sort((a, b) => {
+//     return b[0] - a[0];
+// });
+    
+//     // Get most frequent element out of array
+// mostFreq = [];
+// for (let i = 0; i < k; i++) {
+//     mostFreq.push(frequencyArray[i][1]);
+// }
+    
+// return mostFreq;
+
+
+// problem 06 ( product of array except self )-------------------------------------------------------------
+
+// Example 1:
+
+// Input: nums = [1,2,3,4]
+// Output: [24,12,8,6]
+// Example 2:
+
+// Input: nums = [-1,1,0,-3,3]
+// Output: [0,0,9,0,0]
+
+// let nums = [1,2,3,4];
+// const n = nums.length;
+// const answer=[];
+
+// let left = new Array(n).fill(1);
+// let right = new Array(n).fill(1);
+
+// for (let i = 1; i < n; i++) {
+//     left[i]=left[i-1]*nums[i-1];
+    
+// }
+
+// for (let i = n-2; i >= n; i--) {
+//     right[i]=right[i+1]*nums[i+1];
+    
+// }
+
+// for (let i = 0; i < n; i++) {
+//     answer[i]=left[i]*right[i];
+    
+// }
+// return answer;
+// console.log("hello haseeb");
+const n = nums.length;
+const answer = [];
+
+const left = new Array(n).fill(1);
+const right = new Array(n).fill(1);
+
+// Calculate the product of all elements to the left 
+//of each element
+for (let i = 1; i < n; i++) {
+    left[i] = left[i - 1] * nums[i - 1];
+}
+
+// Calculate the product of all elements to the right 
+//of each element
+for (let i = n - 2; i >= 0; i--) {
+    right[i] = right[i + 1] * nums[i + 1];
+}
+
+for (let i = 0; i < n; i++) {
+    answer[i] = left[i] * right[i];
+}
+
+return answer;
