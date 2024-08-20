@@ -200,26 +200,49 @@
 // }
 // return answer;
 // console.log("hello haseeb");
-const n = nums.length;
-const answer = [];
+// const n = nums.length;
+// const answer = [];
 
-const left = new Array(n).fill(1);
-const right = new Array(n).fill(1);
+// const left = new Array(n).fill(1);
+// const right = new Array(n).fill(1);
 
-// Calculate the product of all elements to the left 
-//of each element
-for (let i = 1; i < n; i++) {
-    left[i] = left[i - 1] * nums[i - 1];
-}
+// // Calculate the product of all elements to the left 
+// //of each element
+// for (let i = 1; i < n; i++) {
+//     left[i] = left[i - 1] * nums[i - 1];
+// }
 
-// Calculate the product of all elements to the right 
-//of each element
-for (let i = n - 2; i >= 0; i--) {
-    right[i] = right[i + 1] * nums[i + 1];
-}
+// // Calculate the product of all elements to the right 
+// //of each element
+// for (let i = n - 2; i >= 0; i--) {
+//     right[i] = right[i + 1] * nums[i + 1];
+// }
 
-for (let i = 0; i < n; i++) {
-    answer[i] = left[i] * right[i];
-}
+// for (let i = 0; i < n; i++) {
+//     answer[i] = left[i] * right[i];
+// }
 
-return answer;
+// return answer;
+
+
+// problem ( 07 )----------------------------------------------------------------------------------------------------------
+
+// Input: s = "A man, a plan, a canal: Panama"
+// Output: true
+// Explanation: "amanaplanacanalpanama" is a palindrome.
+
+
+let input = "A man, a plan, a canal: Panama";
+
+let string = input.replace(/[^a-zA-z]/g,"").toLowerCase();
+console.log("string",string);
+let ispalindrome = string === string.split('').reverse().join('')
+console.log("ispalindrome ",ispalindrome);
+
+
+// final answer ''
+// var isPalindrome = function(s) {
+//     let ispalindrome;
+//     let string = s.replace(/[^a-zA-Z]/g,"").toLowerCase();
+//     return ispalindrome = string === string.split('').reverse().join('');
+// };
