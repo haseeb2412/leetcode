@@ -76,16 +76,98 @@
 // Output: [0]''
 
 
-let nums = [0,1,0,3,12];
+// let nums = [0,1,0,3,12];
 // let answer = nums.sort();
 // console.log(answer);
 
-let left=0;
+// let left=0;
 
+// for (let right = 0; right < nums.length; right++) {
+//     if(nums[right] !== 0){
+//         [nums[left],nums[right]]= [nums[right],nums[left]];
+//         left++;
+//     }
+// }
+// console.log(nums);
+
+
+
+
+// problem 04 --------------------------reverse a string ----------------
+
+
+// Example 1:
+
+// Input: s = ["h","e","l","l","o"]
+// Output: ["o","l","l","e","h"]
+// Example 2:
+
+// Input: s = ["H","a","n","n","a","h"]
+// Output: ["h","a","n","n","a","H"]
+
+
+
+// let  s = ["h","e","l","l","o"];
+// let str = s.reverse();
+// let left =0;
+// let right=s.length-1;
+// while (left < right) {
+//     let temp = s[left];
+//     s[left] = s[right];
+//     s[right] = temp;
+
+//     left++;
+//     right--;
+// }
+// console.log(str);
+// console.log(s);
+
+
+
+// problem 05 -------------------- remove element ------------------
+
+
+// Example 1:
+
+// Input: nums = [3,2,2,3], val = 3
+// Output: 2, nums = [2,2,_,_]
+// Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
+// Example 2:
+
+// Input: nums = [0,1,2,2,3,0,4,2], val = 2
+// Output: 5, nums = [0,1,4,0,3,_,_,_]
+// Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+// Note that the fiv
+
+
+
+
+let nums = [0,1,2,2,3,0,4,2], val = 2;
+let left =0;
 for (let right = 0; right < nums.length; right++) {
-    if(nums[right] !== 0){
-        [nums[left],nums[right]]= [nums[right],nums[left]];
+    if (nums[right] !== val) {
+        
+        [nums[left],nums[right]]=[nums[right],nums[left]];
         left++;
     }
+
 }
+for (let i = left; i < nums.length; i++) {
+    nums[i] = '_';
+}
+
 console.log(nums);
+
+
+
+// ---------------------------remove element leet code ----------------------solution----------------
+let count = 0;
+// Loop through all the elements of the array
+for (let i = 0; i < nums.length; i++) {
+    // If the element is not val
+    if (nums[i] !== val) {
+        nums[count++] = nums[i];
+    }
+}
+return count;
