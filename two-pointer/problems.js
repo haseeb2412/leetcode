@@ -143,31 +143,125 @@
 
 
 
-let nums = [0,1,2,2,3,0,4,2], val = 2;
-let left =0;
-for (let right = 0; right < nums.length; right++) {
-    if (nums[right] !== val) {
+// let nums = [0,1,2,2,3,0,4,2], val = 2;
+// let left =0;
+// for (let right = 0; right < nums.length; right++) {
+//     if (nums[right] !== val) {
         
-        [nums[left],nums[right]]=[nums[right],nums[left]];
-        left++;
-    }
+//         [nums[left],nums[right]]=[nums[right],nums[left]];
+//         left++;
+//     }
 
-}
-for (let i = left; i < nums.length; i++) {
-    nums[i] = '_';
-}
+// }
+// for (let i = left; i < nums.length; i++) {
+//     nums[i] = '_';
+// }
 
-console.log(nums);
+// console.log(nums);
 
 
 
 // ---------------------------remove element leet code ----------------------solution----------------
-let count = 0;
-// Loop through all the elements of the array
-for (let i = 0; i < nums.length; i++) {
-    // If the element is not val
-    if (nums[i] !== val) {
-        nums[count++] = nums[i];
+// let count = 0;
+// // Loop through all the elements of the array
+// for (let i = 0; i < nums.length; i++) {
+//     // If the element is not val
+//     if (nums[i] !== val) {
+//         nums[count++] = nums[i];
+//     }
+// }
+// return count;
+
+
+// pronlem ----------------------------  threesum ----------------------------
+
+
+// Example 1:
+
+// Input: nums = [-1,0,1,2,-1,-4]
+// Output: [[-1,-1,2],[-1,0,1]]
+// Explanation: 
+// nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+// nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+// nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+// The distinct triplets are [-1,0,1] and [-1,-1,2].
+// Notice that the order of the output and the order of the triplets does not matter.
+// Example 2:
+
+// Input: nums = [0,1,1]
+// Output: []
+// Explanation: The only possible triplet does not sum up to 0.\\
+
+
+
+// let nums = [-1,0,1,2,-1,-4];
+// let result = [];
+// nums.sort((a,b)=>a-b);
+// for (let i = 0; i < nums.length; i++) {
+//     if (i>0 && nums[i]== nums[i-1]) {
+//         continue;
+//     }
+
+//     let left = i+1,right = nums.length-1;
+
+//     while (left < right) {
+//         let threeSum = nums[i]+nums[left] + nums[right];
+
+//         if (threeSum >0) {
+//             right--;
+//         }else if(threeSum<0){
+//             left++;
+//         }else{
+//             result.push([nums[i],nums[left],nums[right]]);
+//             left++;
+
+
+//             // this code is addition or check for more conditions
+//             while (nums[left] == nums[left-1] && left < right) {
+//                 left++;
+//             }
+//         }
+//     }
+
+// }
+// console.log(result);
+
+
+
+// pronlem ----------------------------  valid parentheses   ----------------------------
+
+
+// Example 1:
+
+// Input: s = "()"
+
+// Output: true
+
+// Example 2:
+
+// Input: s = "()[]{}"
+
+// Output: true
+
+// Example 3:
+
+// Input: s = "(]"
+
+// Output: false
+
+// Example 4:
+
+// Input: s = "([])"
+
+// Output: true
+
+s = "(";
+for (let i = 0; i < s.length; i++) {
+    if (s[i]=='(' && s[i+1]==")") {
+        console.log("true")
+    }else{
+        console.log("false")
     }
+    
 }
-return count;
+
