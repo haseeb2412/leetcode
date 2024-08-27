@@ -73,3 +73,34 @@ MinStack.prototype.getMin = function() {
  */
 
 // add comment
+
+
+
+//  problem _----------------------- generate parentheses----------------
+
+// Example 1:
+
+// Input: n = 3
+// Output: ["((()))","(()())","(())()","()(())","()()()"]
+// Example 2:
+
+// Input: n = 1
+// Output: ["()"]
+ 
+
+var generateParenthesis = function(n) {
+    const ans=[];
+
+    var dfs =function (s,opens,closes){
+        if(closes> opens ) return
+        if(opens > n ) return
+        if(opens === n && closes == n ){
+            ans.push(s)
+        }
+        dfs(s +"(",opens+1,closes)
+        dfs(s +")",opens,closes + 1)
+    }
+
+    dfs ("",0,0)
+    return ans
+};
