@@ -330,4 +330,3 @@ var search = function(nums, target) {
   return -1;
 };
 
-// return -1;
