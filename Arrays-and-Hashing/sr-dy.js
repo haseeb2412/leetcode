@@ -324,6 +324,3 @@ for (let j = 1; j < nums.length; j++) {
 return i + 1;
 
 
-// add comment
-
-
